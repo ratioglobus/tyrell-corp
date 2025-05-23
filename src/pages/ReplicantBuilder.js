@@ -17,10 +17,10 @@ const ReplicantBuilder = ({ onCreateReplicant }) => {
   const handleCreate = () => {
     const newReplicant = {
       id: uuidv4(),
-      name: `${Date.now()}`,
-      description: `Strength: ${form.strength}/10, Intelligence: ${form.intelligence}/10, Emotion: ${form.emotion}`,
+      name: `Custom replicant`,
+      description: `Number: ${Date.now()}, Strength: ${form.strength}/10, Intelligence: ${form.intelligence}/10, Emotion: ${form.emotion}`,
       price: calculatePrice(form),
-      image: "/Custom.jpg"
+      image: "https://i.pinimg.com/736x/77/a9/c1/77a9c146b15100efec364329df97ce27.jpg"
     };
   
     onCreateReplicant(newReplicant);
@@ -61,47 +61,50 @@ const ReplicantBuilder = ({ onCreateReplicant }) => {
       <h1 style={styles.title}>Replicant Constructor</h1>
 
       <form style={styles.form}>
-        <label>
-          Gender:
-          <select name="gender" value={form.gender} onChange={handleChange}>
-            <option value="neutral">Neutral</option>
-            <option value="female">Female</option>
-            <option value="male">Male</option>
-          </select>
-        </label>
+      <label>
+        Gender:
+        <select name="gender" value={form.gender} onChange={handleChange} style={styles.select}>
+          <option value="neutral">Neutral</option>
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+        </select>
+      </label>
 
-        <label>
-          Strength: {form.strength}
-          <input
-            type="range"
-            name="strength"
-            min="1"
-            max="10"
-            value={form.strength}
-            onChange={handleChange}
-          />
-        </label>
+      <label>
+        Strength: {form.strength}
+        <input
+          type="range"
+          name="strength"
+          min="1"
+          max="10"
+          value={form.strength}
+          onChange={handleChange}
+          style={styles.range}
+        />
+      </label>
 
-        <label>
-          Intelligence: {form.intelligence}
-          <input
-            type="range"
-            name="intelligence"
-            min="1"
-            max="10"
-            value={form.intelligence}
-            onChange={handleChange}
-          />
-        </label>
+      <label>
+        Intelligence: {form.intelligence}
+        <input
+          type="range"
+          name="intelligence"
+          min="1"
+          max="10"
+          value={form.intelligence}
+          onChange={handleChange}
+          style={styles.range}
+        />
+      </label>
 
-        <label>
-          Emotional Profile:
-          <select name="emotion" value={form.emotion} onChange={handleChange}>
-            <option value="controlled">Controlled</option>
-            <option value="adaptive">Adaptive</option>
-            <option value="wild">Unpredictable</option>
-          </select>
-        </label>
+      <label>
+        Emotional Profile:
+        <select name="emotion" value={form.emotion} onChange={handleChange} style={styles.select}>
+          <option value="controlled">Controlled</option>
+          <option value="adaptive">Adaptive</option>
+          <option value="wild">Unpredictable</option>
+        </select>
+      </label>
+
       </form>
 
       <div style={styles.preview}>
@@ -146,6 +149,23 @@ const styles = {
     borderRadius: '10px',
     border: '1px solid #333',
     textAlign: 'center',
+  },
+  select: {
+    backgroundColor: '#222',
+    color: '#e0e0e0',
+    border: '1px solid #444',
+    borderRadius: '6px',
+    padding: '8px 10px',
+    fontFamily: 'Orbitron, sans-serif',
+    fontSize: '1rem',
+    appearance: 'none',
+    cursor: 'pointer',
+    marginLeft: '10px',
+  },
+  range: {
+    width: '100%',
+    cursor: 'pointer',
+    accentColor: '#ff8000',
   },
   button: {
     marginTop: '20px',
