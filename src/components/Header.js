@@ -2,41 +2,24 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Header.css';
+import logo from '../assets/logo.png';
 
 const Header = ({ cartCount }) => {
   return (
-    <header style={styles.header}>
-      <h1>
-        <Link to="/" style={styles.logo}>Tyrell Corporation</Link>
-      </h1>
+    <header>
+      <Link to="/" className="logo-section">
+        <img src={logo} alt="Logo" className="logo" />
+        <h1 className="title">Tyrell Corporation</h1>
+      </Link>
       <nav>
-        <Link to="/" style={styles.navItem}>Catalog</Link>
-        <Link to="/cart" style={styles.navItem}>
+        <Link to="/">Catalog</Link>
+        <Link to="/cart">
           🛒 Shopping cart ({cartCount})
         </Link>
       </nav>
     </header>
   );
-};
-
-const styles = {
-  header: {
-    background: '#111',
-    color: '#fff',
-    padding: '10px 20px',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center'
-  },
-  logo: {
-    color: '#0ff',
-    textDecoration: 'none'
-  },
-  navItem: {
-    marginLeft: '20px',
-    color: '#fff',
-    textDecoration: 'none'
-  }
 };
 
 export default Header;
