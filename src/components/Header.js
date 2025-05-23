@@ -7,14 +7,14 @@ import logo from '../assets/logo.png';
 
 const Header = ({ cartCount }) => {
   return (
-    <header>
+    <header className="header">
       <Link to="/" className="logo-section">
         <img src={logo} alt="Logo" className="logo" />
         <h1 className="title">Tyrell Corporation</h1>
       </Link>
       <nav>
-        <Link to="/">Catalog</Link>
-        <Link to="/cart">
+        <Link className="cart-link" to="/">Catalog</Link>
+        <Link className="cart-link" to="/cart">
           🛒 Shopping cart ({cartCount})
         </Link>
       </nav>

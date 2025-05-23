@@ -1,7 +1,7 @@
 // src/App.js
 
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
 import CartPage from './pages/CartPage';
@@ -37,7 +37,7 @@ function App() {
   };
 
   return (
-    <Router>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div style={styles.appWrapper}>
         <Header cartCount={getCartCount()} />
         <main style={styles.main}>
@@ -48,7 +48,7 @@ function App() {
         </main>
         <Footer />
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 
