@@ -18,7 +18,13 @@ const Info = () => {
         Their existence raises profound questions about identity, humanity, and ethics in artificial life. In the Blade Runner universe,
         the line between human and machine blurs as replicants evolve and begin to question their own place in the world.
       </p>
+
+      <h2 style={styles.title}>Contacts</h2>
+      <p style={styles.text}>
+        Number: +1 212 555 1212
+      </p>
     </div>
+    
   );
 };
 

@@ -14,6 +14,8 @@ const Header = ({ cartCount }) => {
       </Link>
       <nav>
         <Link className="cart-link" to="/info">Info</Link>
+        <Link className="cart-link" to="/technologies">Technologies</Link>
+        <Link className="cart-link" to="/builder">Constructor</Link>
         <Link className="cart-link" to="/">Catalog</Link>
         <Link className="cart-link" to="/cart">
         🛒 ({cartCount})

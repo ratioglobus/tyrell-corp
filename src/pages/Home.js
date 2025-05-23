@@ -2,9 +2,8 @@
 
 import React from 'react';
 import ProductList from '../components/ProductList';
-import products from '../data/products';
 
-const Home = ({ addToCart }) => {
+const Home = ({ products, addToCart }) => {
   return (
     <div>
       <h2 style={styles.title}>Replicants in stock</h2>
