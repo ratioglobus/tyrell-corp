@@ -3,7 +3,7 @@
 const products = [
   {
     id: 1,
-    name: "Nexus-6 Roy Batty",
+    name: "Roy Batty",
     model: "Nexus-6",
     description: "Combat replicant, may be the leader of the organization",
     price: 15000,
