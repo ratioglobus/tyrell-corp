@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/tyrell-corp/static/css/main.ac415535.css",
+    "main.js": "/tyrell-corp/static/js/main.5d629506.js",
+    "static/js/453.aa7d855d.chunk.js": "/tyrell-corp/static/js/453.aa7d855d.chunk.js",
+    "index.html": "/tyrell-corp/index.html",
+    "main.ac415535.css.map": "/tyrell-corp/static/css/main.ac415535.css.map",
+    "main.5d629506.js.map": "/tyrell-corp/static/js/main.5d629506.js.map",
+    "453.aa7d855d.chunk.js.map": "/tyrell-corp/static/js/453.aa7d855d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ac415535.css",
+    "static/js/main.5d629506.js"
+  ]
+}
