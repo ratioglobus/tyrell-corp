@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/tyrell-corp/static/css/main.dad7b483.css",
-    "main.js": "/tyrell-corp/static/js/main.12d54b54.js",
+    "main.css": "/tyrell-corp/static/css/main.3a294b7e.css",
+    "main.js": "/tyrell-corp/static/js/main.d8b19bf8.js",
     "static/js/453.aa7d855d.chunk.js": "/tyrell-corp/static/js/453.aa7d855d.chunk.js",
     "static/media/logo.png": "/tyrell-corp/static/media/logo.5c70c225f97526786bb9.png",
     "index.html": "/tyrell-corp/index.html",
-    "main.dad7b483.css.map": "/tyrell-corp/static/css/main.dad7b483.css.map",
-    "main.12d54b54.js.map": "/tyrell-corp/static/js/main.12d54b54.js.map",
+    "main.3a294b7e.css.map": "/tyrell-corp/static/css/main.3a294b7e.css.map",
+    "main.d8b19bf8.js.map": "/tyrell-corp/static/js/main.d8b19bf8.js.map",
     "453.aa7d855d.chunk.js.map": "/tyrell-corp/static/js/453.aa7d855d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dad7b483.css",
-    "static/js/main.12d54b54.js"
+    "static/css/main.3a294b7e.css",
+    "static/js/main.d8b19bf8.js"
   ]
 }
