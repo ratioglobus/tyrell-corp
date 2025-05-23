@@ -1,9 +1,11 @@
 // src/pages/CartPage.js
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const CartPage = ({ cart, removeFromCart }) => {
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const navigate = useNavigate();
 
   return (
     <div style={styles.container}>
@@ -26,6 +28,12 @@ const CartPage = ({ cart, removeFromCart }) => {
             ))}
           </ul>
           <h3>Total: {total} ₡</h3>
+          <button
+            onClick={() => navigate('/order')}
+            style={styles.orderButton}
+          >
+            Place an order
+          </button>
         </div>
       )}
     </div>
@@ -50,6 +58,17 @@ const styles = {
     padding: '5px 10px',
     cursor: 'pointer',
     borderRadius: '4px'
+  },
+  orderButton: {
+    marginTop: '20px',
+    padding: '10px 20px',
+    backgroundColor: '#ff8000',
+    color: '#000',
+    border: 'none',
+    borderRadius: '6px',
+    cursor: 'pointer',
+    fontWeight: 'bold',
+    fontSize: '16px'
   }
 };
 

@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer style={styles.footer}>
       <p>© 2025 Replicants Store. All rights reserved.</p>
-      <p style={styles.credit}>Inspired by *Blade Runner* universe 🛸</p>
+      <p style={styles.credit}>More human than human 🛸</p>
     </footer>
   );
 };

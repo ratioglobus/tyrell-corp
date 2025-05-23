@@ -13,9 +13,10 @@ const Header = ({ cartCount }) => {
         <h1 className="title">Tyrell Corporation</h1>
       </Link>
       <nav>
+        <Link className="cart-link" to="/info">Info</Link>
         <Link className="cart-link" to="/">Catalog</Link>
         <Link className="cart-link" to="/cart">
-          🛒 Shopping cart ({cartCount})
+        🛒 ({cartCount})
         </Link>
       </nav>
     </header>

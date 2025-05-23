@@ -6,6 +6,8 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import CartPage from './pages/CartPage';
 import Footer from './components/Footer';
+import OrderPage from './pages/OrderPage';
+import Info from './pages/Info';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -36,6 +38,8 @@ function App() {
     return cart.reduce((sum, item) => sum + item.quantity, 0);
   };
 
+  const clearCart = () => setCart([]);
+
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div style={styles.appWrapper}>
@@ -44,6 +48,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home addToCart={addToCart} />} />
             <Route path="/cart" element={<CartPage cart={cart} removeFromCart={removeFromCart} />} />
+            <Route path="/order" element={<OrderPage clearCart={clearCart} />} />
+            <Route path="/info" element={<Info />} /> 
           </Routes>
         </main>
         <Footer />
