@@ -7,4 +7,4 @@ const replicantSchema = new mongoose.Schema({
   image: String
 });
 
-module.exports = mongoose.model('Replicant', replicantSchema);
+module.exports = mongoose.model('Replicant', replicantSchema, 'replicants');

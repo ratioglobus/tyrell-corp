@@ -1,7 +1,6 @@
 // src/pages/ReplicantBuilder.js
 
 import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';
 
 const ReplicantBuilder = ({ onCreateReplicant }) => {
@@ -14,27 +13,11 @@ const ReplicantBuilder = ({ onCreateReplicant }) => {
 
   const navigate = useNavigate();
 
-  const handleCreate = () => {
-    const newReplicant = {
-      id: uuidv4(),
-      name: `Custom replicant`,
-      description: `Number: ${Date.now()}, Strength: ${form.strength}/10, Intelligence: ${form.intelligence}/10, Emotion: ${form.emotion}`,
-      price: calculatePrice(form),
-      image: "https://i.pinimg.com/736x/77/a9/c1/77a9c146b15100efec364329df97ce27.jpg"
-    };
-  
-    onCreateReplicant(newReplicant);
-    navigate('/'); // возвращаем на главную
-  };
-
   const calculatePrice = ({ strength, intelligence, emotion }) => {
     let price = 5000;
-  
-    // За силу и интеллект сверх 1
     price += (strength - 1) * 1000;
     price += (intelligence - 1) * 1000;
-  
-    // Эмоциональный профиль
+
     switch (emotion) {
       case 'adaptive':
         price += 2000;
@@ -45,66 +28,82 @@ const ReplicantBuilder = ({ onCreateReplicant }) => {
       default:
         break;
     }
-  
+
     return price;
   };
 
-  const price = calculatePrice(form);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    setForm(prev => ({ ...prev, [name]: value }));
   };
+
+  const handleCreate = async () => {
+    const newReplicant = {
+      name: `Custom replicant`,
+      description: `Number: ${Date.now()}, Strength: ${form.strength}/10, Intelligence: ${form.intelligence}/10, Emotion: ${form.emotion}`,
+      price: calculatePrice(form),
+      image: "https://i.pinimg.com/736x/77/a9/c1/77a9c146b15100efec364329df97ce27.jpg"
+    };
+
+    try {
+      await onCreateReplicant(newReplicant);
+      navigate('/');
+    } catch (err) {
+      alert('Не удалось создать репликанта');
+      console.error(err);
+    }
+  };
+
+  const price = calculatePrice(form);
 
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>Replicant Constructor</h1>
 
       <form style={styles.form}>
-      <label>
-        Gender:
-        <select name="gender" value={form.gender} onChange={handleChange} style={styles.select}>
-          <option value="neutral">Neutral</option>
-          <option value="female">Female</option>
-          <option value="male">Male</option>
-        </select>
-      </label>
+        <label>
+          Gender:
+          <select name="gender" value={form.gender} onChange={handleChange} style={styles.select}>
+            <option value="neutral">Neutral</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+          </select>
+        </label>
 
-      <label>
-        Strength: {form.strength}
-        <input
-          type="range"
-          name="strength"
-          min="1"
-          max="10"
-          value={form.strength}
-          onChange={handleChange}
-          style={styles.range}
-        />
-      </label>
+        <label>
+          Strength: {form.strength}
+          <input
+            type="range"
+            name="strength"
+            min="1"
+            max="10"
+            value={form.strength}
+            onChange={handleChange}
+            style={styles.range}
+          />
+        </label>
 
-      <label>
-        Intelligence: {form.intelligence}
-        <input
-          type="range"
-          name="intelligence"
-          min="1"
-          max="10"
-          value={form.intelligence}
-          onChange={handleChange}
-          style={styles.range}
-        />
-      </label>
+        <label>
+          Intelligence: {form.intelligence}
+          <input
+            type="range"
+            name="intelligence"
+            min="1"
+            max="10"
+            value={form.intelligence}
+            onChange={handleChange}
+            style={styles.range}
+          />
+        </label>
 
-      <label>
-        Emotional Profile:
-        <select name="emotion" value={form.emotion} onChange={handleChange} style={styles.select}>
-          <option value="controlled">Controlled</option>
-          <option value="adaptive">Adaptive</option>
-          <option value="wild">Unpredictable</option>
-        </select>
-      </label>
-
+        <label>
+          Emotional Profile:
+          <select name="emotion" value={form.emotion} onChange={handleChange} style={styles.select}>
+            <option value="controlled">Controlled</option>
+            <option value="adaptive">Adaptive</option>
+            <option value="wild">Unpredictable</option>
+          </select>
+        </label>
       </form>
 
       <div style={styles.preview}>
@@ -176,7 +175,7 @@ const styles = {
     color: '#000',
     cursor: 'pointer',
     fontWeight: 'bold',
-  }
+  },
 };
 
 export default ReplicantBuilder;
