@@ -24,7 +24,6 @@
   }
 }
 
-
 .product-card:hover {
   transform: scale(1.03);
 }
@@ -48,6 +47,11 @@
   text-align: center;
   opacity: 0.85;
   margin: 6px 0;
+}
+
+.product-card-text {
+  text-decoration: none;
+  text-align: center;
 }
 
 .product-card .price {
