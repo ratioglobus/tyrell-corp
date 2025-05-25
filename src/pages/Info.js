@@ -1,10 +1,14 @@
 // src/pages/Info.js
 
 import React from 'react';
+import InfoShader from '../components/InfoShader';
+import ParticlesLines from '../components/ParticlesLines';
 
 const Info = () => {
   return (
     <div style={styles.container}>
+      <InfoShader />
+      <ParticlesLines />
       <h2 style={styles.title}>What are Replicants?</h2>
       <p style={styles.text}>
         Replicants are bioengineered beings virtually identical to humans. Originally developed by the Tyrell Corporation,
@@ -23,6 +27,8 @@ const Info = () => {
       <p style={styles.text}>
         Number: +1 212 555 1212
       </p>
+
+     
     </div>
     
   );

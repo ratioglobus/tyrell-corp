@@ -1,78 +1,107 @@
 .product-card {
-  background: #1c1c1c;
-  color: #e0e0e0;
-  border-radius: 12px;
+  position: relative;
+  background: #0d0d0d;
+  border: 1px solid #00fff7;
+  border-radius: 7px;
   padding: 20px;
-  box-shadow: 0 0 3px rgba(255, 128, 0);
+  color: #e0e0e0;
+  box-shadow: 0 0 3px #00fff7, 0 0 15px #ff00c8;
   display: flex;
   flex-direction: column;
+  justify-content: space-between; /* Чтобы контент и кнопка были по краям */
   align-items: center;
-  transition: transform 0.2s, box-shadow 0.2s;
-  
+  transition: transform 0.2s;
   max-width: 300px;
-  width: 100%;
-
-  /* ✅ Добавь это: */
-  min-width: 0;
-  height: 100%;
+  height: 100%; /* Растягивает карточку по высоте родителя */
   box-sizing: border-box;
-}
-
-@media (max-width: 900px) {
-  .product-card {
-    margin: 0 auto; /* центрирует карточку, если одна в ряду */
-  }
+  overflow: hidden;
 }
 
 .product-card:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
+}
+
+.product-card h3 {
+  position: relative;
+  font-size: 1.2em;
+  color: #00fff7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 12px 0px 0px 0px;
+}
+
+/* Глитч-анимация применяется только при hover */
+.product-card:hover h3 {
+  animation: glitchText 1s infinite;
+}
+
+@keyframes glitchText {
+  0% {
+    text-shadow: 2px 0 red, -2px 0 blue;
+  }
+  20% {
+    text-shadow: -2px 0 red, 2px 0 blue;
+  }
+  40% {
+    text-shadow: 2px 2px red, -2px -2px blue;
+  }
+  60% {
+    text-shadow: -2px 2px red, 2px -2px blue;
+  }
+  80% {
+    text-shadow: 2px -2px red, -2px 2px blue;
+  }
+  100% {
+    text-shadow: 0 0 red, 0 0 blue;
+  }
 }
 
 .product-card img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 10px;
+  border-radius: 10px;
+  margin-bottom: 6px;
 }
 
-.product-card h3 {
-  margin: 0;
-  font-size: 1.1em;
-  color: #ff8000;
-}
-
-.product-card p {
+.product-description {
   font-size: 0.9em;
-  text-align: center;
   opacity: 0.85;
-  margin: 6px 0;
+  margin-bottom: 6px;
+  text-align: center;
+  flex-grow: 1; /* чтобы описание занимало доступное пространство */
 }
 
-.product-card-text {
-  text-decoration: none;
+.price {
+  color: #ff00cc;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 1em;
+  text-shadow: 0 0 4px #ff00cc;
   text-align: center;
 }
 
-.product-card .price {
-  font-weight: bold;
-  font-size: 1em;
-  margin: 8px 0;
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
-.product-card button {
-  margin-top: auto;
-  padding: 8px 16px;
-  background-color: #ff8000;
+.buy-button {
+  background: #ff00cc;
+  color: #0a0a0a;
   border: none;
-  border-radius: 6px;
-  color: #111;
-  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 8px;
   font-weight: bold;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  font-family: 'Orbitron', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 0 10px #ff00cc, 0 0 20px #ff00cc;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
 
-.product-card button:hover {
-  background-color: #ff8000;
-  box-shadow: 0 0 10px #ff8000;
+.buy-button:hover {
+  background: #00ffee;
+  box-shadow: 0 0 10px #00ffee, 0 0 20px #00ffee;
+  transform: scale(1.05);
 }
