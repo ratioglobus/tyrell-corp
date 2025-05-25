@@ -41,7 +41,7 @@ const ParticlesLines = () => {
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(255, 128, 0, 0.8)';
+        ctx.fillStyle = 'rgba(255, 0, 200, 0.8)';
         ctx.fill();
       }
     }
@@ -62,7 +62,7 @@ const ParticlesLines = () => {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < MAX_DISTANCE) {
-            ctx.strokeStyle = `rgba(255, 128, 0, ${1 - dist / MAX_DISTANCE})`;
+            ctx.strokeStyle = `rgba(255, 0, 200, ${1 - dist / MAX_DISTANCE})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);

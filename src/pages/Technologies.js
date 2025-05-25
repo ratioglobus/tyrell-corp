@@ -12,7 +12,7 @@ const Technologies = () => {
 
       <section style={styles.techSection}>
         <img
-          src="neocortical-engine.png"
+          src="neocortical-engine.jpg"
           alt="Neocortical Engine™"
           style={styles.techImage}
         />
@@ -27,7 +27,7 @@ const Technologies = () => {
 
       <section style={styles.techSection}>
         <img
-          src="BioFiber.png"
+          src="BioFiber.jpg"
           alt="Neocortical Engine™"
           style={styles.techImage}
         />
@@ -68,7 +68,7 @@ const styles = {
   },
   title: {
     fontSize: '2.5rem',
-    color: '#ff8000',
+    color: '#ebebebda',
     textAlign: 'center',
     marginBottom: '10px',
   },
@@ -86,12 +86,12 @@ const styles = {
     background: '#1c1c1c',
     padding: '20px',
     borderRadius: '10px',
-    boxShadow: '0 0 10px rgba(255,128,0,0.2)',
+    boxShadow: '0 0 3px #ff00c8',
   },
   techImage: {
     width: '180px',
     borderRadius: '10px',
-    boxShadow: '0 0 3px #ff8000',
+    boxShadow: '0 0 3px #00fff7',
     flexShrink: 0,
   },
   section: {

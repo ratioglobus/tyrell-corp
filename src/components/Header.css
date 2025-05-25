@@ -6,7 +6,7 @@
   align-items: center;
   background-color: #0b0b0b;
   padding: 16px 24px;
-  box-shadow: 0 0 3px rgba(255, 128, 0);
+  box-shadow: 0 0 3px #00fff7, 0 0 15px #ff00c8;
 }
 
 .logo-section {
@@ -23,7 +23,7 @@
 
 .title {
   font-size: 1.5em;
-  color: #ff8000;
+  color: #ebebebda;
   margin: 0;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .cart-link {
-  color: #fff;
+  color: #ebebebda;
   text-decoration: none;
   font-weight: bold;
   font-size: 1.1em;
@@ -57,7 +57,7 @@
 .bar {
   height: 3px;
   width: 100%;
-  background-color: #ff8000;
+  background-color: #ebebebda;
   border-radius: 2px;
 }
 

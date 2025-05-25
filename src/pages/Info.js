@@ -21,14 +21,7 @@ const Info = () => {
       <p style={styles.text}>
         Their existence raises profound questions about identity, humanity, and ethics in artificial life. In the Blade Runner universe,
         the line between human and machine blurs as replicants evolve and begin to question their own place in the world.
-      </p>
-
-      <h2 style={styles.title}>Contacts</h2>
-      <p style={styles.text}>
-        Number: +1 212 555 1212
-      </p>
-
-     
+      </p>     
     </div>
     
   );
@@ -40,7 +33,8 @@ const styles = {
     margin: '40px auto',
     padding: '20px',
     backgroundColor: '#111',
-    color: '#ff8000',
+    color: '#fff',
+    letterSpacing: '3px',
     borderRadius: '12px',
     fontFamily: 'Orbitron, sans-serif',
   },

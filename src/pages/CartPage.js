@@ -62,7 +62,7 @@ const styles = {
   orderButton: {
     marginTop: '20px',
     padding: '10px 20px',
-    backgroundColor: '#ff8000',
+    backgroundColor: '#00fff7',
     color: '#000',
     border: 'none',
     borderRadius: '6px',

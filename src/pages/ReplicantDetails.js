@@ -45,13 +45,13 @@ const ReplicantDetails = () => {
 const styles = {
   container: {
     maxWidth: '600px',
-    margin: '20px auto',
+    margin: '40px auto',
     padding: '20px',
     fontFamily: 'Orbitron, sans-serif',
     color: '#e0e0e0',
     backgroundColor: '#1e1e1e',
     borderRadius: '10px',
-    boxShadow: '0 0 15px rgba(255,128,0,0.4)',
+    boxShadow: '0 0 3px #00fff7'
   },
   image: {
     width: '100%',
@@ -61,7 +61,7 @@ const styles = {
   backLink: {
     display: 'inline-block',
     marginTop: '20px',
-    color: '#ff8000',
+    color: '#ff00c8',
     textDecoration: 'none',
   },
 };

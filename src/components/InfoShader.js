@@ -78,7 +78,7 @@ const InfoShader = () => {
       ctx.clearRect(0, 0, width, height);
 
       // Создаём размытие и свечение
-      ctx.shadowColor = 'rgba(255, 128, 0, 0.7)';
+      ctx.shadowColor = 'rgba(255, 0, 200, 0.7)';
       ctx.shadowBlur = 15;
 
       // Рисуем линии

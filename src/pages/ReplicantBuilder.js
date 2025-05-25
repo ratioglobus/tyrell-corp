@@ -130,7 +130,7 @@ const styles = {
   title: {
     fontSize: '2rem',
     marginBottom: '20px',
-    color: '#ff8000',
+    color: '#ebebebda',
     textAlign: 'center',
   },
   form: {
@@ -164,15 +164,15 @@ const styles = {
   range: {
     width: '100%',
     cursor: 'pointer',
-    accentColor: '#ff8000',
+    accentColor: '#ff00c8', 
   },
   button: {
     marginTop: '20px',
     padding: '10px 20px',
-    backgroundColor: '#ff8000',
+    backgroundColor: '#ff00c8',
     border: 'none',
     borderRadius: '6px',
-    color: '#000',
+    color: '#fff',
     cursor: 'pointer',
     fontWeight: 'bold',
   },
