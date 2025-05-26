@@ -4,7 +4,7 @@ import './style/Technologies.css';
 const Technologies = () => {
   return (
     <div className="container">
-      <h1 className="title">Tyrell Technologies</h1>
+      <h1 className="title-techno">Tyrell Technologies</h1>
       <p className="subtitle">
         "More human than human" – this is not just a motto, but our mission.
       </p>

@@ -16,7 +16,7 @@ function App() {
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
 
-  // Функция загрузки продуктов с сервера
+  // Загружает список репликантов
   const fetchProducts = async () => {
     try {
       const res = await fetch('https://tyrell-backend.onrender.com/api/replicants');
@@ -59,19 +59,17 @@ function App() {
   };
 
   const getCartCount = () => cart.reduce((sum, item) => sum + item.quantity, 0);
-
   const clearCart = () => setCart([]);
 
-  // Добавление нового репликанта с обновлением списка из сервера
-  const addCustomProduct = async (newProduct) => {
+  // Добавление нового репликанта
+  // Передаём уже готовый FormData из ReplicantBuilder
+  const addCustomProduct = async (formData) => {
     try {
       const response = await fetch('https://tyrell-backend.onrender.com/api/replicants', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newProduct),
+        body: formData, // FormData со всеми полями и файлом
       });
       if (!response.ok) throw new Error('Ошибка при добавлении репликанта');
-
       await fetchProducts();
     } catch (err) {
       console.error(err);

@@ -1,8 +1,6 @@
-// src/pages/ReplicantBuilder.js
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './style/ReplicantBuilder.css'; // Подключаем CSS
+import './style/ReplicantBuilder.css';
 
 const DEFAULT_IMAGE = "https://i.pinimg.com/736x/77/a9/c1/77a9c146b15100efec364329df97ce27.jpg";
 
@@ -18,11 +16,15 @@ const ReplicantBuilder = ({ onCreateReplicant }) => {
   const navigate = useNavigate();
 
   const calculatePrice = ({ strength, intelligence, emotion }) => {
-    let price = 5000;
-    price += (strength - 1) * 1000;
-    price += (intelligence - 1) * 1000;
+    const str = Number(strength) || 5;
+    const intel = Number(intelligence) || 5;
+    const emo = emotion || 'controlled';
 
-    switch (emotion) {
+    let price = 5000;
+    price += (str - 1) * 1000;
+    price += (intel - 1) * 1000;
+
+    switch (emo) {
       case 'adaptive':
         price += 2000;
         break;
@@ -43,25 +45,35 @@ const ReplicantBuilder = ({ onCreateReplicant }) => {
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setForm(prev => ({ ...prev, image: reader.result }));
-    };
-    reader.readAsDataURL(file);
+    if (file) {
+      setForm(prev => ({ ...prev, image: file }));
+    }
   };
 
   const handleCreate = async () => {
-    const newReplicant = {
-      name: `Custom replicant`,
-      description: `Number: ${Date.now()}, Strength: ${form.strength}/10, Intelligence: ${form.intelligence}/10, Emotion: ${form.emotion}`,
-      price: calculatePrice(form),
-      image: form.image || DEFAULT_IMAGE,
-    };
+    const formData = new FormData();
+    formData.append('name', `Custom replicant`);
+    formData.append(
+      'description',
+      `Number: ${Date.now()}, Strength: ${form.strength}/10, Intelligence: ${form.intelligence}/10, Emotion: ${form.emotion}`
+    );
+    formData.append('price', calculatePrice(form));
+    formData.append('gender', form.gender);
+    formData.append('strength', form.strength);
+    formData.append('intelligence', form.intelligence);
+    formData.append('emotion', form.emotion);
+
+    if (form.image) {
+      formData.append('image', form.image); // multer ищет поле с именем 'image'
+    }
+
+    // Проверка содержимого formData (можно временно)
+    // for (const pair of formData.entries()) {
+    //   console.log(pair[0], pair[1]);
+    // }
 
     try {
-      await onCreateReplicant(newReplicant);
+      await onCreateReplicant(formData);
       navigate('/');
     } catch (err) {
       alert('Не удалось создать репликанта');
@@ -75,7 +87,7 @@ const ReplicantBuilder = ({ onCreateReplicant }) => {
     <div className="replicant-container">
       <h1 className="replicant-title">Replicant Constructor</h1>
 
-      <form className="replicant-form">
+      <form className="replicant-form" onSubmit={(e) => e.preventDefault()}>
         <label>
           Gender:
           <select
@@ -136,6 +148,7 @@ const ReplicantBuilder = ({ onCreateReplicant }) => {
             Choose File
             <input
               type="file"
+              name="image"
               accept="image/*"
               onChange={handleImageUpload}
               className="hidden-input"
@@ -145,7 +158,7 @@ const ReplicantBuilder = ({ onCreateReplicant }) => {
 
         {form.image && (
           <p className="image-selected-text">
-            ✓ Image selected
+            ✓ Image selected: {form.image.name}
           </p>
         )}
       </form>
@@ -156,8 +169,8 @@ const ReplicantBuilder = ({ onCreateReplicant }) => {
         <p><strong>Strength:</strong> {form.strength}/10</p>
         <p><strong>Intelligence:</strong> {form.intelligence}/10</p>
         <p><strong>Emotion:</strong> {form.emotion}</p>
-        <p><strong>Price:</strong> {price.toLocaleString()} ₡</p>
-        <p><strong>Image:</strong> {form.image ? "Image uploaded" : "No image"}</p>
+        <p><strong>Price:</strong> {price != null ? price.toLocaleString() : 'N/A'} ₡</p>
+        <p><strong>Image:</strong> {form.image ? form.image.name : "No image"}</p>
         <button className="replicant-button" onClick={handleCreate}>
           Create Replicant
         </button>
