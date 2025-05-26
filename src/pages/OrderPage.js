@@ -1,6 +1,8 @@
 // src/pages/OrderPage.js
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './style/OrderPage.css'; // Подключаем стили из отдельной папки
 
 const OrderPage = ({ clearCart }) => {
   const [name, setName] = useState('');
@@ -11,7 +13,7 @@ const OrderPage = ({ clearCart }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     clearCart();
-    setShowModal(true); // показать модалку
+    setShowModal(true);
   };
 
   const handleCloseModal = () => {
@@ -20,40 +22,40 @@ const OrderPage = ({ clearCart }) => {
   };
 
   return (
-    <div style={styles.wrapper}>
-      <h2 style={styles.title}>Placing an order</h2>
-      <form onSubmit={handleSubmit} style={styles.form}>
-        <label style={styles.label}>Name:</label>
+    <div className="order-wrapper">
+      <h2 className="order-title">Placing an order</h2>
+      <form onSubmit={handleSubmit} className="order-form">
+        <label className="order-label">Name:</label>
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
-          style={styles.input}
+          className="order-input"
           placeholder="Введите имя"
         />
 
-        <label style={styles.label}>Email:</label>
+        <label className="order-label">Email:</label>
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          style={styles.input}
+          className="order-input"
           placeholder="Введите email"
         />
 
-        <button type="submit" style={styles.button}>
+        <button type="submit" className="order-button">
           Order
         </button>
       </form>
 
       {showModal && (
-        <div style={styles.modalOverlay}>
-          <div style={styles.modal}>
+        <div className="modal-overlay">
+          <div className="modal">
             <h3>Thank you for your order, {name}!</h3>
             <p>You will be contacted at the specified email: {email}</p>
-            <button onClick={handleCloseModal} style={styles.closeButton}>
+            <button onClick={handleCloseModal} className="close-button">
               Main page
             </button>
           </div>
@@ -61,87 +63,6 @@ const OrderPage = ({ clearCart }) => {
       )}
     </div>
   );
-};
-
-const styles = {
-  wrapper: {
-    maxWidth: '500px',
-    margin: '50px auto',
-    padding: '30px',
-    backgroundColor: '#111',
-    color: '#ebebebda',
-    borderRadius: '12px',
-    boxShadow: '0 0 3px #ff00c8',
-    fontFamily: 'Orbitron, sans-serif',
-  },
-  title: {
-    textAlign: 'center',
-    marginBottom: '20px',
-  },
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  label: {
-    marginBottom: '8px',
-    fontWeight: 'bold',
-    fontSize: '14px',
-  },
-  input: {
-    padding: '10px',
-    marginBottom: '20px',
-    borderRadius: '6px',
-    border: '1px solid #00fff7',
-    backgroundColor: '#000',
-    color: '#00fff7',
-    fontFamily: 'Orbitron, sans-serif',
-    fontSize: '14px',
-    letterSpacing: '2px'
-  },
-  button: {
-    fontFamily: 'Orbitron, sans-serif',
-    padding: '12px',
-    backgroundColor: '#00fff7',
-    color: '#000',
-    border: 'none',
-    borderRadius: '8px',
-    cursor: 'pointer',
-    fontSize: '16px',
-    fontWeight: 'bold',
-    transition: 'transform 0.2s, box-shadow 0.2s',
-  },
-  modalOverlay: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '100vw',
-    height: '100vh',
-    backgroundColor: 'rgba(0, 0, 0, 0.75)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    zIndex: 1000,
-  },
-  modal: {
-    backgroundColor: '#111',
-    color: '#ff00c8',
-    padding: '30px',
-    borderRadius: '10px',
-    textAlign: 'center',
-    maxWidth: '400px',
-    boxShadow: '0 0 6px #ff00c8',
-    animation: 'fadeIn 0.3s ease-out',
-  },
-  closeButton: {
-    marginTop: '20px',
-    padding: '10px 20px',
-    backgroundColor: '#00fff7',
-    color: '#000',
-    border: 'none',
-    borderRadius: '6px',
-    cursor: 'pointer',
-    fontWeight: 'bold',
-  },
 };
 
 export default OrderPage;

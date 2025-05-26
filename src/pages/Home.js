@@ -2,21 +2,15 @@
 
 import React from 'react';
 import ProductList from '../components/ProductList';
+import './style/Home.css'; // Подключаем стили из отдельной папки
 
 const Home = ({ products, addToCart }) => {
   return (
     <div>
-      <h2 style={styles.title}>Replicants in stock</h2>
+      <h2 className="home-title">Replicants in stock</h2>
       <ProductList products={products} addToCart={addToCart} />
     </div>
   );
-};
-
-const styles = {
-  title: {
-    textAlign: 'center',
-    marginTop: '20px'
-  }
 };
 
 export default Home;

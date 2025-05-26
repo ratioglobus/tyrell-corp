@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductCard from './ProductCard';
-import './ProductList.css'; // Подключим стили
+import './style/ProductList.css'; // Подключим стили
 
 const ProductList = ({ products, addToCart }) => {
   return (

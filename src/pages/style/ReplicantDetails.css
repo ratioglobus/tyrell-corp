@@ -1,0 +1,36 @@
+/* src/pages/style/ReplicantDetails.css */
+
+.replicant-details-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: 'Orbitron', sans-serif;
+  color: #e0e0e0;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  box-shadow: 0 0 3px #00fff7;
+}
+
+.replicant-image {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #ff00c8;
+  text-decoration: none;
+}
+
+/* Дополнительные стили для сообщений загрузки и ошибок */
+
+.loading,
+.error,
+.no-data {
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  color: #ff00c8;
+  margin-top: 50px;
+}

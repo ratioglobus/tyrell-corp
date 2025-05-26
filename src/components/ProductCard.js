@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './ProductCard.css';
+import './style/ProductCard.css';
 
 const ProductCard = ({ product, addToCart }) => {
   return (

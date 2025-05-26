@@ -1,6 +1,7 @@
 // src/pages/ReplicantDetails.js
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import './style/ReplicantDetails.css';  // Подключаем стили
 
 const ReplicantDetails = () => {
   const { id } = useParams();
@@ -24,46 +25,22 @@ const ReplicantDetails = () => {
       });
   }, [id]);
 
-  if (loading) return <p>Loading replicant details...</p>;
-  if (error) return <p>Error: {error}</p>;
-  if (!replicant) return <p>No replicant found.</p>;
+  if (loading) return <p className="loading">Loading replicant details...</p>;
+  if (error) return <p className="error">Error: {error}</p>;
+  if (!replicant) return <p className="no-data">No replicant found.</p>;
 
   return (
-    <div style={styles.container}>
+    <div className="replicant-details-container">
       <h1>{replicant.name}</h1>
-      <img src={replicant.image} alt={replicant.name} style={styles.image} />
+      <img src={replicant.image} alt={replicant.name} className="replicant-image" />
       <p><strong>Description:</strong> {replicant.description}</p>
       <p><strong>Price:</strong> {replicant.price.toLocaleString()} ₡</p>
 
-      {/* Здесь можно добавить больше расширенных характеристик, если они появятся */}
+      {/* Можно добавить дополнительные характеристики */}
 
-      <Link to="/" style={styles.backLink}>← Back to list</Link>
+      <Link to="/" className="back-link">← Back to list</Link>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    maxWidth: '600px',
-    margin: '40px auto',
-    padding: '20px',
-    fontFamily: 'Orbitron, sans-serif',
-    color: '#e0e0e0',
-    backgroundColor: '#1e1e1e',
-    borderRadius: '10px',
-    boxShadow: '0 0 3px #00fff7'
-  },
-  image: {
-    width: '100%',
-    borderRadius: '10px',
-    marginBottom: '20px',
-  },
-  backLink: {
-    display: 'inline-block',
-    marginTop: '20px',
-    color: '#ff00c8',
-    textDecoration: 'none',
-  },
 };
 
 export default ReplicantDetails;

@@ -1,28 +1,13 @@
-// src/components/Footer.js
-
 import React from 'react';
+import './style/Footer.css';
 
 const Footer = () => {
   return (
-    <footer style={styles.footer}>
+    <footer className="footer">
       <p>© 2025 Replicants Store. All rights reserved.</p>
-      <p style={styles.credit}>More human than human 🛸</p>
+      <p className="credit">More human than human 🛸</p>
     </footer>
   );
-};
-
-const styles = {
-  footer: {
-    marginTop: '40px',
-    padding: '20px',
-    backgroundColor: '#111',
-    color: '#ccc',
-    textAlign: 'center'
-  },
-  credit: {
-    fontSize: '0.9em',
-    opacity: 0.7
-  }
 };
 
 export default Footer;

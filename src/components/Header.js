@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Header.css';
+import './style/Header.css';
 import logo from '../assets/logo.png';
 
 const Header = ({ cartCount }) => {

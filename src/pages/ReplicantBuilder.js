@@ -2,6 +2,9 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './style/ReplicantBuilder.css'; // Подключаем CSS
+
+const DEFAULT_IMAGE = "https://i.pinimg.com/736x/77/a9/c1/77a9c146b15100efec364329df97ce27.jpg";
 
 const ReplicantBuilder = ({ onCreateReplicant }) => {
   const [form, setForm] = useState({
@@ -9,6 +12,7 @@ const ReplicantBuilder = ({ onCreateReplicant }) => {
     strength: 5,
     intelligence: 5,
     emotion: 'controlled',
+    image: null,
   });
 
   const navigate = useNavigate();
@@ -37,12 +41,23 @@ const ReplicantBuilder = ({ onCreateReplicant }) => {
     setForm(prev => ({ ...prev, [name]: value }));
   };
 
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setForm(prev => ({ ...prev, image: reader.result }));
+    };
+    reader.readAsDataURL(file);
+  };
+
   const handleCreate = async () => {
     const newReplicant = {
       name: `Custom replicant`,
       description: `Number: ${Date.now()}, Strength: ${form.strength}/10, Intelligence: ${form.intelligence}/10, Emotion: ${form.emotion}`,
       price: calculatePrice(form),
-      image: "https://i.pinimg.com/736x/77/a9/c1/77a9c146b15100efec364329df97ce27.jpg"
+      image: form.image || DEFAULT_IMAGE,
     };
 
     try {
@@ -57,13 +72,18 @@ const ReplicantBuilder = ({ onCreateReplicant }) => {
   const price = calculatePrice(form);
 
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>Replicant Constructor</h1>
+    <div className="replicant-container">
+      <h1 className="replicant-title">Replicant Constructor</h1>
 
-      <form style={styles.form}>
+      <form className="replicant-form">
         <label>
           Gender:
-          <select name="gender" value={form.gender} onChange={handleChange} style={styles.select}>
+          <select
+            name="gender"
+            value={form.gender}
+            onChange={handleChange}
+            className="replicant-select"
+          >
             <option value="neutral">Neutral</option>
             <option value="female">Female</option>
             <option value="male">Male</option>
@@ -79,7 +99,7 @@ const ReplicantBuilder = ({ onCreateReplicant }) => {
             max="10"
             value={form.strength}
             onChange={handleChange}
-            style={styles.range}
+            className="replicant-range"
           />
         </label>
 
@@ -92,90 +112,58 @@ const ReplicantBuilder = ({ onCreateReplicant }) => {
             max="10"
             value={form.intelligence}
             onChange={handleChange}
-            style={styles.range}
+            className="replicant-range"
           />
         </label>
 
         <label>
           Emotional Profile:
-          <select name="emotion" value={form.emotion} onChange={handleChange} style={styles.select}>
+          <select
+            name="emotion"
+            value={form.emotion}
+            onChange={handleChange}
+            className="replicant-select"
+          >
             <option value="controlled">Controlled</option>
             <option value="adaptive">Adaptive</option>
             <option value="wild">Unpredictable</option>
           </select>
         </label>
+
+        <div className="upload-row">
+          <span>Uploading a photo with an example (optional):</span>
+          <label className="upload-button">
+            Choose File
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageUpload}
+              className="hidden-input"
+            />
+          </label>
+        </div>
+
+        {form.image && (
+          <p className="image-selected-text">
+            ✓ Image selected
+          </p>
+        )}
       </form>
 
-      <div style={styles.preview}>
+      <div className="replicant-preview">
         <h2>Genetic Blueprint</h2>
         <p><strong>Gender:</strong> {form.gender}</p>
         <p><strong>Strength:</strong> {form.strength}/10</p>
         <p><strong>Intelligence:</strong> {form.intelligence}/10</p>
         <p><strong>Emotion:</strong> {form.emotion}</p>
         <p><strong>Price:</strong> {price.toLocaleString()} ₡</p>
-        <button style={styles.button} onClick={handleCreate}>Create Replicant</button>
+        <p><strong>Image:</strong> {form.image ? "Image uploaded" : "No image"}</p>
+        <button className="replicant-button" onClick={handleCreate}>
+          Create Replicant
+        </button>
       </div>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    maxWidth: '700px',
-    margin: '0 auto',
-    padding: '30px 20px',
-    fontFamily: 'Orbitron, sans-serif',
-    color: '#e0e0e0',
-  },
-  title: {
-    fontSize: '2rem',
-    marginBottom: '20px',
-    color: '#ebebebda',
-    textAlign: 'center',
-  },
-  form: {
-    display: 'grid',
-    gap: '20px',
-    background: '#1e1e1e',
-    padding: '20px',
-    borderRadius: '10px',
-    boxShadow: '0 0 10px rgba(255,128,0,0.2)',
-  },
-  preview: {
-    marginTop: '30px',
-    padding: '20px',
-    background: '#111',
-    borderRadius: '10px',
-    border: '1px solid #333',
-    textAlign: 'center',
-  },
-  select: {
-    backgroundColor: '#222',
-    color: '#e0e0e0',
-    border: '1px solid #444',
-    borderRadius: '6px',
-    padding: '8px 10px',
-    fontFamily: 'Orbitron, sans-serif',
-    fontSize: '1rem',
-    appearance: 'none',
-    cursor: 'pointer',
-    marginLeft: '10px',
-  },
-  range: {
-    width: '100%',
-    cursor: 'pointer',
-    accentColor: '#ff00c8', 
-  },
-  button: {
-    marginTop: '20px',
-    padding: '10px 20px',
-    backgroundColor: '#ff00c8',
-    border: 'none',
-    borderRadius: '6px',
-    color: '#fff',
-    cursor: 'pointer',
-    fontWeight: 'bold',
-  },
 };
 
 export default ReplicantBuilder;

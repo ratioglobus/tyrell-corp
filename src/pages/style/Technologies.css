@@ -1,0 +1,39 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Orbitron', sans-serif;
+  color: #e0e0e0;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #ebebebda;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 40px;
+  opacity: 0.8;
+}
+
+.techSection {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  background: #1c1c1c;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 3px #ff00c8;
+}
+
+.techImage {
+  width: 180px;
+  border-radius: 10px;
+  box-shadow: 0 0 3px #00fff7;
+  flex-shrink: 0;
+}
