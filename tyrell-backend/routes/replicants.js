@@ -54,7 +54,8 @@ router.post('/', upload.single('image'), async (req, res) => {
     });
 
     await newReplicant.save();
-    res.status(201).json(newReplicant);
+    console.log('Saved replicant:', newReplicant);
+    res.status(201).json(newReplicant.toObject());
   } catch (err) {
     console.error('Error saving replicant:', err);
     res.status(500).json({ error: 'Server error' });
