@@ -1,7 +1,7 @@
 // src/pages/ReplicantDetails.js
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import './style/ReplicantDetails.css';  // Подключаем стили
+import './style/ReplicantDetails.css';
 
 const ReplicantDetails = () => {
   const { id } = useParams();
@@ -29,15 +29,19 @@ const ReplicantDetails = () => {
   if (error) return <p className="error">Error: {error}</p>;
   if (!replicant) return <p className="no-data">No replicant found.</p>;
 
+  // Формируем полный URL к картинке:
+  const imageSrc = replicant.image
+    ? replicant.image.startsWith('http')
+      ? replicant.image
+      : `https://tyrell-backend.onrender.com${replicant.image}`
+    : 'https://i.pinimg.com/736x/77/a9/c1/77a9c146b15100efec364329df97ce27.jpg';
+
   return (
     <div className="replicant-details-container">
       <h1>{replicant.name}</h1>
-      <img src={replicant.image} alt={replicant.name} className="replicant-image" />
+      <img src={imageSrc} alt={replicant.name} className="replicant-image" />
       <p><strong>Description:</strong> {replicant.description}</p>
       <p><strong>Price:</strong> {replicant.price.toLocaleString()} ₡</p>
-
-      {/* Можно добавить дополнительные характеристики */}
-
       <Link to="/" className="back-link">← Back to list</Link>
     </div>
   );
