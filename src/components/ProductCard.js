@@ -7,16 +7,17 @@ import './style/ProductCard.css';
 const DEFAULT_IMAGE =
   'https://i.pinimg.com/736x/77/a9/c1/77a9c146b15100efec364329df97ce27.jpg';
 
+// Укажи здесь адрес своего бэкенда
+const BACKEND_URL = 'https://tyrell-backend.onrender.com';
+
 const ProductCard = ({ product, addToCart }) => {
-  // Если product.image — относительный путь (начинается с '/'),
-  // подставляем текущий хост и протокол, иначе оставляем как есть.
+  // Формируем полный путь к картинке
   const imageSrc = product.image
     ? product.image.startsWith('http')
       ? product.image
-      : `${window.location.origin}${product.image}`
+      : `${BACKEND_URL}${product.image}`
     : DEFAULT_IMAGE;
 
-  // Безопасно приводим цену к числу и форматируем
   const price =
     product.price != null && !isNaN(Number(product.price))
       ? Number(product.price).toLocaleString()
