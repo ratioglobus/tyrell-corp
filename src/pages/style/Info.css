@@ -22,3 +22,16 @@
   line-height: 1.6;
   font-size: 16px;
 }
+
+.ai-helper-wrapper {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  color: white;
+}
+
+.ai-helper-title {
+  margin-bottom: 0.5rem;
+}

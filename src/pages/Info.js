@@ -3,6 +3,7 @@
 import React from 'react';
 import InfoShader from '../components/InfoShader';
 import ParticlesLines from '../components/ParticlesLines';
+import AIHelper from '../components/AIHelper'; // ⬅️ Добавляем импорт TS-компонента
 import './style/Info.css'; // Подключаем стили из отдельной папки
 
 const Info = () => {
@@ -22,7 +23,12 @@ const Info = () => {
       <p className="info-text">
         Their existence raises profound questions about identity, humanity, and ethics in artificial life. In the Blade Runner universe,
         the line between human and machine blurs as replicants evolve and begin to question their own place in the world.
-      </p>     
+      </p>
+
+      <div className="ai-helper-wrapper"> {/* ⬅️ Контейнер под AI-помощника */}
+        <h3 className="ai-helper-title">🤖 AI Replicant Assistant</h3>
+        <AIHelper /> {/* ⬅️ Вставка AI-компонента */}
+      </div>
     </div>
   );
 };
