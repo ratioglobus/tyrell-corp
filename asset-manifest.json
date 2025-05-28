@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/tyrell-corp/static/css/main.701fec9a.css",
-    "main.js": "/tyrell-corp/static/js/main.d464d874.js",
+    "main.js": "/tyrell-corp/static/js/main.caad3427.js",
     "static/js/453.aa7d855d.chunk.js": "/tyrell-corp/static/js/453.aa7d855d.chunk.js",
     "static/media/logo.png": "/tyrell-corp/static/media/logo.43f96cb10c8c95af6802.png",
     "index.html": "/tyrell-corp/index.html",
     "main.701fec9a.css.map": "/tyrell-corp/static/css/main.701fec9a.css.map",
-    "main.d464d874.js.map": "/tyrell-corp/static/js/main.d464d874.js.map",
+    "main.caad3427.js.map": "/tyrell-corp/static/js/main.caad3427.js.map",
     "453.aa7d855d.chunk.js.map": "/tyrell-corp/static/js/453.aa7d855d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.701fec9a.css",
-    "static/js/main.d464d874.js"
+    "static/js/main.caad3427.js"
   ]
 }
