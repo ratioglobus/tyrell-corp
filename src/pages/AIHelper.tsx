@@ -13,7 +13,8 @@ const AIHelper: React.FC = () => {
         method: "POST",
         headers: {
           'Authorization': `Bearer ${process.env.REACT_APP_OPENROUTER_API_KEY}`,
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          'HTTP-Referer': 'https://ratioglobus.github.io/tyrell-corp/'
         },
         body: JSON.stringify({
           "model": "deepseek/deepseek-chat-v3-0324:free",
