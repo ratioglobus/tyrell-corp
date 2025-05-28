@@ -8,6 +8,8 @@ const AIHelper: React.FC = () => {
   const handleSend = async () => {
     setLoading(true);
 
+    console.log('API KEY:', process.env.REACT_APP_OPENROUTER_API_KEY);
+
     try {
       const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
         method: 'POST',
