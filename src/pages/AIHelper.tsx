@@ -13,15 +13,19 @@ const AIHelper: React.FC = () => {
         method: "POST",
         headers: {
           'Authorization': `Bearer ${process.env.REACT_APP_OPENROUTER_API_KEY}`,
-          "Content-Type": "application/json",
-          'HTTP-Referer': 'https://ratioglobus.github.io/tyrell-corp/'
+          'Content-Type': 'application/json',
+          'HTTP-Referer': 'https://ratioglobus.github.io/tyrell-corp/',
         },
         body: JSON.stringify({
-          "model": "deepseek/deepseek-chat-v3-0324:free",
-          "messages": [
+          model: "deepseek/deepseek-chat-v3-0324:free",
+          messages: [
             {
-              "role": "user",
-              "content": "Отвечай кратко, дружелюбно и понятно. Не давай философских размышлений без прямого запроса"
+              role: "system",
+              content: "Ты — русскоязычный AI-помощник. Отвечай кратко, дружелюбно и понятно. Не давай философских размышлений без прямого запроса."
+            },
+            {
+              role: "user",
+              content: input
             }
           ]
         })
