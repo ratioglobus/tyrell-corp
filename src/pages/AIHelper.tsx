@@ -21,7 +21,7 @@ const AIHelper: React.FC = () => {
           "messages": [
             {
               "role": "user",
-              "content": "What is the meaning of life?"
+              "content": "Отвечай кратко, дружелюбно и понятно. Не давай философских размышлений без прямого запроса"
             }
           ]
         })
