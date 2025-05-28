@@ -9,21 +9,21 @@ const AIHelper: React.FC = () => {
     setLoading(true);
 
     try {
-      const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-        method: 'POST',
+      const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+        method: "POST",
         headers: {
           'Authorization': `Bearer ${process.env.REACT_APP_OPENROUTER_API_KEY}`,
-          'Content-Type': 'application/json',
-          'HTTP-Referer': 'https://ratioglobus.github.io/tyrell-corp/', // ✅ обязательно!
-          'X-Title': 'Tyrell Corp Assistant', // ✅ не обязателен, но помогает
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          model: 'deepseek/deepseek-prover-v2:free',
-          messages: [
-            { role: 'system', content: 'You are a helpful assistant.' },
-            { role: 'user', content: input },
-          ],
-        }),
+          "model": "deepseek/deepseek-chat-v3-0324:free",
+          "messages": [
+            {
+              "role": "user",
+              "content": "What is the meaning of life?"
+            }
+          ]
+        })
       });
 
       const data = await res.json();
