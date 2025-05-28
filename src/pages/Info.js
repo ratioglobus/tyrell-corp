@@ -3,7 +3,7 @@
 import React from 'react';
 import InfoShader from '../components/InfoShader';
 import ParticlesLines from '../components/ParticlesLines';
-import AIHelper from '../components/AIHelper'; // ⬅️ Добавляем импорт TS-компонента
+import AIHelper from '../components/AIHelper';
 import './style/Info.css'; // Подключаем стили из отдельной папки
 
 const Info = () => {
