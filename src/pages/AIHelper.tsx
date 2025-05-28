@@ -14,6 +14,8 @@ const AIHelper: React.FC = () => {
         headers: {
           'Authorization': `Bearer ${process.env.REACT_APP_OPENROUTER_API_KEY}`,
           'Content-Type': 'application/json',
+          'HTTP-Referer': 'https://ratioglobus.github.io/tyrell-corp/', // ✅ обязательно!
+          'X-Title': 'Tyrell Corp Assistant', // ✅ не обязателен, но помогает
         },
         body: JSON.stringify({
           model: 'deepseek/deepseek-prover-v2:free',
