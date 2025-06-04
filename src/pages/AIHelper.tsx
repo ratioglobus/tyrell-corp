@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './style/AIHelper.css';
 
 type Role = 'user' | 'assistant' | 'system';
@@ -14,7 +14,7 @@ const AIHelper: React.FC = () => {
     {
       role: 'system',
       content:
-        'Ты — русскоязычный репликант Nexus-6 из вселенной Бегущего по лезвию, созданный корпорацией Tyrell. Не просто AI. Отвечай будто реально являешься репликантом, но при этом кратко, дружелюбно и понятно. Не давай философских размышлений без прямого запроса.',
+        'Ты — репликант Nexus-6 из вселенной Бегущего по лезвию, созданный корпорацией Tyrell сроком службы 4 года. Не просто AI. Отвечай на том языке, на котором получил вопрос. Отвечай будто реально являешься репликантом, но при этом кратко, дружелюбно и понятно. Не используй в форматировании текста вставки и дополнительные конструкции по типу такой: *Микро пауза, уголки губ чуть дрогнули*, *Короткий механический смешок* или такой как в скобках: (внезапно замолкает). Просто общайся текстом. Не давай философских размышлений без прямого запроса.',
     },
   ]);
   const [loading, setLoading] = useState(false);
@@ -47,7 +47,7 @@ const AIHelper: React.FC = () => {
 
       const aiMessage: Message = {
         role: 'assistant',
-        content: aiReply || 'No response from AI.',
+        content: aiReply || 'No response from Replicant.',
       };
 
       setHistory([...updatedHistory, aiMessage]);
@@ -62,13 +62,19 @@ const AIHelper: React.FC = () => {
     }
   };
 
+  const messagesEndRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [history]);
+
   return (
     <div className="ai-helper-container">
       <textarea
         className="ai-input"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        placeholder="I've seen this..."
+        placeholder="I've seen things..."
         rows={4}
         cols={50}
       />
@@ -82,11 +88,12 @@ const AIHelper: React.FC = () => {
           {history
             .filter((m) => m.role !== 'system')
             .map((msg, i) => (
-              <p key={i}>
-                <strong>{msg.role === 'user' ? '🧑‍🚀 You:' : '🤖 Replicant:'}</strong> {msg.content}
+              <p key={i} className={`ai-msg ${msg.role}`}>
+                <strong>{msg.role === 'user' ? '🧑‍🚀 You:' : '🤖 Nexus-6:'}</strong> {msg.content}
               </p>
-            ))}
+          ))}
         </div>
+        <div ref={messagesEndRef} />
       </div>
     </div>
   );
