@@ -25,7 +25,7 @@ const Header = ({ cartCount }) => {
       </button>
 
       <nav className={`nav-links ${menuOpen ? 'open' : ''}`}>
-        <Link className="cart-link" to="/info" onClick={closeMenu}>Info</Link>
+        <Link className="cart-link" to="/info" onClick={closeMenu}>Ask Replicant</Link>
         <Link className="cart-link" to="/technologies" onClick={closeMenu}>Technologies</Link>
         <Link className="cart-link" to="/builder" onClick={closeMenu}>Constructor</Link>
         <Link className="cart-link" to="/" onClick={closeMenu}>Catalog</Link>

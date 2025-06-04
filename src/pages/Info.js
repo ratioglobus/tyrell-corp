@@ -11,6 +11,13 @@ const Info = () => {
     <div className="info-container">
       <InfoShader />
       <ParticlesLines />
+
+      <h2 className="info-title">Ask the Replicant</h2>
+
+      <div className="ai-helper-wrapper"> {/* ⬅️ Контейнер под AI-помощника */}
+        <AIHelper /> {/* ⬅️ Вставка AI-компонента */}
+      </div>
+
       <h2 className="info-title">What are Replicants?</h2>
       <p className="info-text">
         Replicants are bioengineered beings virtually identical to humans. Originally developed by the Tyrell Corporation,
@@ -25,10 +32,7 @@ const Info = () => {
         the line between human and machine blurs as replicants evolve and begin to question their own place in the world.
       </p>
 
-      <div className="ai-helper-wrapper"> {/* ⬅️ Контейнер под AI-помощника */}
-        <h3 className="ai-helper-title">🤖 AI Replicant Assistant</h3>
-        <AIHelper /> {/* ⬅️ Вставка AI-компонента */}
-      </div>
+
     </div>
   );
 };
