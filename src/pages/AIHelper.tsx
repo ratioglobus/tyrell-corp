@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import './style/AIHelper.css';
 
 type Role = 'user' | 'assistant' | 'system';
@@ -62,12 +62,6 @@ const AIHelper: React.FC = () => {
     }
   };
 
-  const messagesEndRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [history]);
-
   return (
     <div className="ai-helper-container">
       <textarea
@@ -93,7 +87,6 @@ const AIHelper: React.FC = () => {
               </p>
           ))}
         </div>
-        <div ref={messagesEndRef} />
       </div>
     </div>
   );

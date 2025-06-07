@@ -14,8 +14,8 @@ const Info = () => {
 
       <h2 className="info-title">Ask the Replicant</h2>
 
-      <div className="ai-helper-wrapper"> {/* ⬅️ Контейнер под AI-помощника */}
-        <AIHelper /> {/* ⬅️ Вставка AI-компонента */}
+      <div className="ai-helper-wrapper">
+        <AIHelper />
       </div>
 
       <h2 className="info-title">What are Replicants?</h2>

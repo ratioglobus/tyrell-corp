@@ -2,7 +2,7 @@
 
 import React from 'react';
 import ProductList from '../components/ProductList';
-import './style/Home.css'; // Подключаем стили из отдельной папки
+import './style/Home.css';
 
 const Home = ({ products, addToCart }) => {
   return (

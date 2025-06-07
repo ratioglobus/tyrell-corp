@@ -32,7 +32,7 @@ const OrderPage = ({ clearCart }) => {
           onChange={(e) => setName(e.target.value)}
           required
           className="order-input"
-          placeholder="Введите имя"
+          placeholder="Enter name"
         />
 
         <label className="order-label">Email:</label>
@@ -42,7 +42,7 @@ const OrderPage = ({ clearCart }) => {
           onChange={(e) => setEmail(e.target.value)}
           required
           className="order-input"
-          placeholder="Введите email"
+          placeholder="Enter email"
         />
 
         <button type="submit" className="order-button">

@@ -64,13 +64,8 @@ const ReplicantBuilder = ({ onCreateReplicant }) => {
     formData.append('emotion', form.emotion);
 
     if (form.image) {
-      formData.append('image', form.image); // multer ищет поле с именем 'image'
+      formData.append('image', form.image);
     }
-
-    // Проверка содержимого formData (можно временно)
-    // for (const pair of formData.entries()) {
-    //   console.log(pair[0], pair[1]);
-    // }
 
     try {
       await onCreateReplicant(formData);
