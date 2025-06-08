@@ -2,7 +2,7 @@
 
 .home-title {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .sort-container {
@@ -34,6 +34,9 @@
   cursor: pointer;
   transition: background-color 0.2s ease;
   font-size: 0.9rem;
+  font-family: inherit;
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 
 .sort-button:hover {

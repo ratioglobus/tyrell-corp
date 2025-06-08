@@ -1,11 +1,9 @@
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* по 3 карточки */
+  grid-template-columns: repeat(4, 1fr); /* по 3 карточки */
   gap: 24px;
   padding: 40px 20px;
-
-  /* ✅ Ограничим ширину всей сетки */
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto; /* центрируем по горизонтали */
   box-sizing: border-box;
 }

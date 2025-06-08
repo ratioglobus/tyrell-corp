@@ -12,9 +12,6 @@ const Home = ({ products, addToCart }) => {
     let sorted = [...products];
 
     switch (sortOption) {
-      case 'newest':
-        sorted.sort((a, b) => new Date(b.dateAdded || b.createdAt) - new Date(a.dateAdded || a.createdAt));
-        break;
       case 'price-asc':
         sorted.sort((a, b) => a.price - b.price);
         break;
@@ -41,12 +38,6 @@ const Home = ({ products, addToCart }) => {
      <div className="sort-container">
       <span className="sort-label">Sort by:</span>
       <div className="sort-options">
-        <button
-          className={`sort-button ${sortOption === 'newest' ? 'active' : ''}`}
-          onClick={() => setSortOption('newest')}
-        >
-          Newest
-        </button>
         <button
           className={`sort-button ${sortOption === 'price-asc' ? 'active' : ''}`}
           onClick={() => setSortOption('price-asc')}
