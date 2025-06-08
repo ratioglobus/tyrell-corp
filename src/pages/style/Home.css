@@ -4,3 +4,43 @@
   text-align: center;
   margin-top: 20px;
 }
+
+.sort-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центрирование по горизонтали */
+  margin: 2rem 0;
+  gap: 0.5rem;
+}
+
+.sort-label {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.sort-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Центрирование кнопок */
+  gap: 0.5rem;
+}
+
+.sort-button {
+  padding: 0.5rem 1rem;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.sort-button:hover {
+  background-color: #e0e0e0;
+}
+
+.sort-button.active {
+  background-color: #333;
+  color: #fff;
+}
