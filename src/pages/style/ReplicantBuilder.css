@@ -19,7 +19,7 @@
   background: #1e1e1e;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(255,128,0,0.2);
+  box-shadow: 0 0 5px;
 }
 
 .replicant-select {
@@ -38,7 +38,7 @@
 .replicant-range {
   width: 100%;
   cursor: pointer;
-  accent-color: #ff00c8;
+  accent-color: #16a34a;
 }
 
 .upload-row {
@@ -53,22 +53,20 @@
 .upload-button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #222;
-  color: #ff00c8;
-  border: 1px solid #ff00c8;
+  background: #16a34a;
+  border: 1px solid #16a34a;
+  color: #fff;
   border-radius: 6px;
   cursor: pointer;
   font-family: 'Orbitron', sans-serif;
   font-size: 0.9rem;
   text-align: center;
-  transition: all 0.3s ease;
   user-select: none;
 }
 
 .upload-button:hover {
-  background-color: #ff00c8;
-  color: #222;
-  border-color: #ff00c8;
+  background: #0A4921;
+  box-shadow: 0 0 3px #0A4921, 0 0 5px #0A4921;
 }
 
 .hidden-input {
@@ -94,11 +92,16 @@
 .replicant-button {
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: #ff00c8;
-  border: none;
-  border-radius: 6px;
   color: #fff;
+  background: #16a34a;
+  border: 1px solid #16a34a;
+  border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
   font-family: 'Orbitron', sans-serif;
+}
+
+.replicant-button:hover  {
+  background: #0A4921;
+  box-shadow: 0 0 3px #0A4921, 0 0 5px #0A4921;
 }

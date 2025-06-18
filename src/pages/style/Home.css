@@ -8,7 +8,7 @@
 .sort-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Центрирование по горизонтали */
+  align-items: center; 
   margin: 2rem 0;
   gap: 0.5rem;
 }
@@ -22,7 +22,7 @@
 .sort-options {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Центрирование кнопок */
+  justify-content: center;
   gap: 0.5rem;
 }
 
@@ -46,4 +46,49 @@
 .sort-button.active {
   background-color: #333;
   color: #fff;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+.marquee-container {
+  width: 100%;
+  background-color: #000;
+  overflow: hidden;
+  position: relative;
+  border-top: 1px solid #16a34a;
+  border-bottom: 1px solid #16a34a;
+  padding: 12px 0;
+  margin-bottom: 24px;
+  box-shadow: 0 0 10px rgba(22, 163, 74, 0.5);
+}
+
+.marquee {
+  display: inline-block;
+  white-space: nowrap;
+  font-family: 'VT323', monospace;
+  font-size: 2.2rem;
+  color: #16a34a;
+  animation: marquee 25s linear infinite;
+  padding-left: 100%;
+  text-shadow: 0 0 4px #16a34a;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes scanner {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 100%;
+  }
 }

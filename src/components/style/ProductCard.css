@@ -9,7 +9,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  transition: transform 0.2s;
+  transition: transform 0.1s;
   max-width: 300px;
   height: 100%;
   box-sizing: border-box;
@@ -42,7 +42,7 @@
   font-size: 0.9em;
   margin-bottom: 6px;
   text-align: center;
-  flex-grow: 1; /* чтобы описание занимало доступное пространство */
+  flex-grow: 1;
 }
 
 .price {
@@ -68,7 +68,6 @@
   font-weight: bold;
   font-family: 'Orbitron', sans-serif;
   cursor: pointer;
-  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
 
 .buy-button:hover {

@@ -8,7 +8,7 @@
   color: #e0e0e0;
   background-color: #1e1e1e;
   border-radius: 10px;
-  box-shadow: 0 0 3px #00fff7;
+  box-shadow: 0 0 3px #16a34a;
 }
 
 .replicant-image {
@@ -20,7 +20,7 @@
 .back-link {
   display: inline-block;
   margin-top: 20px;
-  color: #ff00c8;
+  color: #16a34a;
   text-decoration: none;
 }
 
@@ -31,6 +31,6 @@
 .no-data {
   text-align: center;
   font-family: 'Orbitron', sans-serif;
-  color: #ff00c8;
+  color: #16a34a;
   margin-top: 50px;
 }

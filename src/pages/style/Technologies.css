@@ -28,12 +28,12 @@
   background: #1c1c1c;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 3px #ff00c8;
+  box-shadow: 0 0 5px #16a34a;
 }
 
 .techImage {
   width: 180px;
   border-radius: 10px;
-  box-shadow: 0 0 3px #00fff7;
+  box-shadow: 0 0 5px #16a34a;
   flex-shrink: 0;
 }

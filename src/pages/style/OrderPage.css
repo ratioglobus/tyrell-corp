@@ -7,7 +7,7 @@
   background-color: #111;
   color: #ebebebda;
   border-radius: 12px;
-  box-shadow: 0 0 3px #ff00c8;
+  box-shadow: 0 0 5px #16a34a;
   font-family: 'Orbitron', sans-serif;
 }
 
@@ -31,9 +31,9 @@
   padding: 10px;
   margin-bottom: 20px;
   border-radius: 6px;
-  border: 1px solid #00fff7;
+  border: 1px solid #fff;
   background-color: #000;
-  color: #00fff7;
+  color: #fff;
   font-family: 'Orbitron', sans-serif;
   font-size: 14px;
   letter-spacing: 2px;
@@ -41,15 +41,20 @@
 
 .order-button {
   font-family: 'Orbitron', sans-serif;
-  padding: 12px;
-  background-color: #00fff7;
-  color: #000;
-  border: none;
-  border-radius: 8px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #16a34a;
+  border: 1px solid #16a34a;
+  color: #fff;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 16px;
   font-weight: bold;
-  transition: transform 0.2s, box-shadow 0.2s;
+  font-size: 16px;
+}
+
+.order-button:hover {
+  background: #0A4921;
+  box-shadow: 0 0 3px #0A4921, 0 0 5px #0A4921;
 }
 
 .modal-overlay {
@@ -67,20 +72,20 @@
 
 .modal {
   background-color: #111;
-  color: #ff00c8;
+  color: #16a34a;
   padding: 30px;
   border-radius: 10px;
   text-align: center;
   max-width: 400px;
-  box-shadow: 0 0 6px #ff00c8;
+  box-shadow: 0 0 6px #16a34a;
   animation: fadeIn 0.3s ease-out;
 }
 
 .close-button {
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: #00fff7;
-  color: #000;
+  background-color: #16a34a;
+  color: #fff;
   border: none;
   border-radius: 6px;
   cursor: pointer;
