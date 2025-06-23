@@ -21,29 +21,35 @@ function App() {
     try {
       const res = await fetch('https://tyrell-backend.onrender.com/api/replicants');
       if (!res.ok) throw new Error('Failed to fetch products');
+
       const data = await res.json();
       const fixedData = data.map(item => ({
         ...item,
         id: item._id,
       }));
+
       setProducts(fixedData);
     } catch (err) {
       console.error(err);
     }
-  };
+  }; 
 
+  // Показывает список репликантов при открытии страницы каталога
   useEffect(() => {
     fetchProducts();
   }, []);
 
+  // Добавление товара в корзину
   const addToCart = (product) => {
     setCart(prev => {
       const existing = prev.find(item => item.id === product.id);
+
       if (existing) {
         return prev.map(item =>
           item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         );
       }
+      
       return [...prev, { ...product, quantity: 1 }];
     });
   };
@@ -61,8 +67,7 @@ function App() {
   const getCartCount = () => cart.reduce((sum, item) => sum + item.quantity, 0);
   const clearCart = () => setCart([]);
 
-  // Добавление нового репликанта
-  // Передаём уже готовый FormData из ReplicantBuilder
+  // Добавление нового репликанта. Передаём уже готовый FormData из ReplicantBuilder
   const addCustomProduct = async (formData) => {
     try {
       const response = await fetch('https://tyrell-backend.onrender.com/api/replicants', {

@@ -7,6 +7,7 @@
   background-color: #0b0b0b;
   padding: 16px 24px;
   box-shadow: 0 0 15px #16a34a;
+  flex-wrap: wrap;
 }
 
 .logo-section {
@@ -38,54 +39,90 @@
   text-decoration: none;
   font-weight: bold;
   font-size: 1.1em;
-  margin-left: 20px;
 }
 
-/* ——— Бургер и адаптивность ——— */
+/* --- Правая группа действий --- */
 
-.burger {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 20px;
-  width: 33px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.bar {
-  height: 3px;
-  width: 100%;
-  background-color: #ebebebda;
-  border-radius: 2px;
-}
-
-.nav-links {
+.right-actions {
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: 30px;
 }
+
+.menu-wrapper {
+  position: relative;
+}
+
+.menu-button {
+  background: #16a34a;
+  color: #ebebebda;
+  font-size: 1.1em;
+  border: 1px solid #16a34a;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 400;
+}
+
+.menu-button:hover {
+  background-color: #1a1a1a;
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 110%;
+  background-color: #111;
+  border: 1px solid #16a34a;
+  border-radius: 8px;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
+  z-index: 999;
+  box-shadow: 0 0 15px rgba(0, 255, 128, 0.2);
+}
+
+.dropdown a {
+  color: #ebebebda;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.dropdown a:hover {
+  background-color: #222;
+}
+
+/* Адаптивность */
 
 @media (max-width: 768px) {
-  .burger {
-    display: flex;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 80px;
-    right: 20px;
-    background-color: #111;
-    border-radius: 8px;
+  .header {
     flex-direction: column;
-    padding: 20px;
-    display: none;
-    box-shadow: 0 0 10px rgba(255, 128, 0, 0.3);
-    z-index: 1000;
+    align-items: flex-start;
+    gap: 12px;
   }
 
-  .nav-links.open {
-    display: flex;
+  .right-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .dropdown {
+    top: 60px;
+    right: 0;
+  }
+
+  .menu-button {
+    font-size: 1em;
+    padding: 6px 12px;
+  }
+
+  .cart-link {
+    margin-left: 0;
   }
 }
-
